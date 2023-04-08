@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $title = "Trang chính";
+        return view('Main.home', compact(['title']));
     }
 }

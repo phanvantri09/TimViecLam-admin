@@ -40,4 +40,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //relationship  1 - 1
+    public function info_user(){
+        return $this->hasOne(InfoUser::class,'id_user');
+    }
+    public function info_social_user(){
+        return $this->hasMany(InfoSocialUser::class, 'id_user');
+    }
+    //relationship  1 - n
+    public function jobs(){
+        return $this->hasMany(Jobs::class, 'id_user');
+    }
+    public function apply(){
+        return $this->hasMany(Apply::class, 'id_user');
+    }
 }

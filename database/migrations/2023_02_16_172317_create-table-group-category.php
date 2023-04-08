@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTableGroupCategory extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('group_category', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('content')->nullable();
+            $table->integer('amount_search')->default(1)->comment("khi user tìm kiếm hoặc nhấn vào tab này sẽ tự động tăng lên 1");
+            $table->integer('id_user_create')->nullable();
+            $table->integer('id_user_update')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('group_category');
+    }
+}

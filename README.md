@@ -24,3 +24,7 @@ Feel free to use and re-use any way you want.
 
 - Check out my YouTube channel [Dot Coding](https://www.youtube.com/channel/UCYobBTcVkUvIqQW3sSTGarg).
 - Feel free to send me an e-mail for support [dot.bol.lp@gmail.com](mailto:dot.bol.lp@gmail.com).
+docs
+code
+https://adminlte.io/themes/v3/pages/tables/simple.html
+
