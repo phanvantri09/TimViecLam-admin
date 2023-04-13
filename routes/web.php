@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\SensitiveKeywordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,12 @@ Route::prefix('admin')->group(function () {
             
             Route::get('/job/{id}', 'Job')->name('Job');
 
+        });
+    });
+    Route::group(['prefix'=>'SensitiveKeyword', 'as'=>'SensitiveKeyword.'],function () {
+        Route::controller(SensitiveKeywordController::class)->group(function () {
+            Route::get('/add-keysensitive', 'GetKeywordSensitive')->name('KeywordSensitive');
+            Route::post('/add-keysensitive', 'PostKeywordSensitive')->name('KeywordSensitive');
         });
     });
 });
