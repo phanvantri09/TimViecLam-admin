@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\SlideController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +53,19 @@ Route::prefix('admin')->group(function () {
             
             Route::get('/job/{id}', 'Job')->name('Job');
 
+        });
+    });
+    Route::group(['prefix' => 'Slide', 'as' => 'Slide.'],function () {
+        Route::controller(SlideController::class)->group(function () {
+            Route::get('/add','AddSlide')->name('Add');
+            Route::post('/add','AddSlidePost')->name('AddPost');
+            Route::get('/list','ListSlide')->name('List');
+
+
+            Route::get('/add-image/{id}', 'AddImage')->name('AddImage');
+            Route::post('/add-image', 'AddImagePost')->name('AddImagePost');
+
+            Route::get('/detail/{id}', 'SlideDetail')->name('Detail');
         });
     });
 });
