@@ -720,45 +720,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
                  --}}
 
-
-                        <li class="nav-header">NGƯỜI DÙNG</li>
+               <li class="nav-item">
+                    <a href="{{ route('User.Add',['type'=>333]) }}" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p> Tạo admin mới <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('Overview.overview')}}" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Overview page<i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                </li>
+               <li class="nav-header">NGƯỜI DÙNG</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p> Người tìm việc <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('User.Add', ['type' => 333]) }}" class="nav-link">
-                                <i class="nav-icon fas fa-circle"></i>
-                                <p> Tạo admin mới <i class="right fas fa-angle-left"></i>
-                                </p>
+                            <a href="{{ route('User.Add',['type'=>111]) }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm</p>
                             </a>
                         </li>
                         <li class="nav-header">NGƯỜI DÙNG</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-circle"></i>
-                                <p> Người tìm việc <i class="right fas fa-angle-left"></i>
-
+                            <a href="{{ route('User.List', ['type'=>111]) }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Danh sách <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('User.Add', ['type' => 111]) }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('User.List', ['type' => 111]) }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Danh sách <i class="right fas fa-angle-left"></i>
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p> Người đăng tuyển <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('User.Add',['type'=>222]) }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-circle"></i>
-                                <p> Người đăng tuyển <i class="right fas fa-angle-left"></i>
+                            <a href="{{ route('User.List', ['type'=>222]) }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Danh sách <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
 
@@ -777,7 +796,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                             </ul>
                         </li>
-
+                    </ul>
+                </li>
                         {{-- <li class="nav-header">TUYỂN DỤNG</li> --}}
                         <li class="nav-item">
                             <a href="#" class="nav-link">
