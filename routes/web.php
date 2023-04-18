@@ -68,7 +68,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/add-overview', 'OverView')->name('overview');
             Route::get('/list-user', 'ListUserOverView')->name('ListUser');
             Route::get('/list-user-recruit', 'ListUserRecruitOverView')->name('ListRecruit');
-            Route::get('/add-overview', 'OverView')->name('overview');
+            Route::get('/add-list-post', 'ListPostOverView')->name('ListPost');
         });
     });
 });
