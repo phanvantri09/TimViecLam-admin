@@ -14,6 +14,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-switch@3.3.4/dist/css/bootstrap3/bootstrap-switch.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.8.3/dist/css/lightgallery.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -159,9 +163,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Brand Logo -->
             <a style="text-align: center" href="index3.html" class="brand-link">
 
-                <span class="brand-text font-weight-light "
-                    style="text-align: center">{{ !empty(Auth::user()->name) ? Auth::user()->name : (!empty(Auth::user()->email) ? Auth::user()->email : '') }}</span>
+                <span class="brand-text font-weight-light " style="text-align: center">Admin</span>
             </a>
+
 
             <!-- Sidebar -->
             <div class="sidebar">
@@ -171,6 +175,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="{{ asset('dist/img/user2-160x160.jpg') }} " class="img-circle elevation-2" alt="User Image">
           </div> --}}
                     <div class="info">
+
                         <a class="btn btn-primary d-block" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">Đăng
@@ -178,7 +183,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        {{--  --}}
                     </div>
                 </div>
 
@@ -212,6 +216,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="../../index.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
+
                                         <p>Người dùng</p>
                                     </a>
                                 </li>
@@ -236,6 +241,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                         <li class="nav-item">
+
                             <a class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p> Giao diện <i class="right fas fa-angle-left"></i>
@@ -714,6 +720,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </li>
                  --}}
 
+
                         <li class="nav-header">NGƯỜI DÙNG</li>
                         <li class="nav-item">
                             <a href="{{ route('User.Add', ['type' => 333]) }}" class="nav-link">
@@ -722,10 +729,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-header">NGƯỜI DÙNG</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-circle"></i>
                                 <p> Người tìm việc <i class="right fas fa-angle-left"></i>
+
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -752,12 +761,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+
                                     <a href="{{ route('User.Add', ['type' => 222]) }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
+
                                     <a href="{{ route('User.List', ['type' => 222]) }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Danh sách <i class="right fas fa-angle-left"></i>
@@ -768,27 +779,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         {{-- <li class="nav-header">TUYỂN DỤNG</li> --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                {{-- <i class="nav-icon far fa-circle text-danger"></i> --}}
-                                <p class="text">TUYỂN DỤNG <i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('Job.Add') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('Job.List') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Danh sách <i class="right fas "></i>
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-circle text-warning"></i>
@@ -809,15 +799,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../search/simple.html" class="nav-link">
+                                    <a href="{{ route('Slide.Add') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Simple Search</p>
+                                        <p>Thêm Slide</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../search/enhanced.html" class="nav-link">
+                                    <a href="{{ route('Slide.List') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Enhanced</p>
+                                        <p>Danh sách Slide</p>
                                     </a>
                                 </li>
                             </ul>
@@ -861,6 +851,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.sidebar -->
         </aside>
         <section class="content-header">
+
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
@@ -868,6 +859,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
+
                             <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                             {{-- <li class="breadcrumb-item active">Liên hệ</li> --}}
                         </ol>
@@ -876,6 +868,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div><!-- /.container-fluid -->
         </section>
         <!-- Content Wrapper. Contains page content -->
+
         <div class="content-wrapper" tyle="min-height: 1345.31px;">
             @yield('content')
 
@@ -896,6 +889,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
+
                 Admin website tìm việc làm
             </div>
             <!-- Default to the left -->
@@ -908,6 +902,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- jQuery -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-switch@3.3.4/dist/js/bootstrap-switch.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.8.3/dist/js/lightgallery-all.min.js"></script>
+    
 </body>
 
 </html>
