@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\SensitiveKeywordController;
+use App\Http\Controllers\OverviewController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +61,14 @@ Route::prefix('admin')->group(function () {
         Route::controller(SensitiveKeywordController::class)->group(function () {
             Route::get('/add-keysensitive', 'GetKeywordSensitive')->name('KeywordSensitive');
             Route::post('/add-keysensitive', 'PostKeywordSensitive')->name('KeywordSensitive');
+        });
+    });
+    Route::group(['prefix'=>'Overview', 'as'=>'Overview.'],function () {
+        Route::controller(OverviewController::class)->group(function () {
+            Route::get('/add-overview', 'OverView')->name('overview');
+            Route::get('/list-user', 'ListUserOverView')->name('ListUser');
+            Route::get('/list-user-recruit', 'ListUserRecruitOverView')->name('ListRecruit');
+            Route::get('/add-overview', 'OverView')->name('overview');
         });
     });
 });

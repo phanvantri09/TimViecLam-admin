@@ -672,6 +672,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('Overview.overview')}}" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>Overview page<i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">NGƯỜI DÙNG</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -717,6 +724,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                     </ul>
                 </li>
+                
                 
                 {{-- <li class="nav-header">TUYỂN DỤNG</li> --}}
                 <li class="nav-item">
