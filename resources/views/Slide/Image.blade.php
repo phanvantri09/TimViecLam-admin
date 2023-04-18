@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Danh sách các slide</h3>
+                            <h3 class="card-title">Danh sách các ảnh trong slide</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -14,8 +14,9 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">STT</th>
-                                        <th>Tiêu Đề</th>
                                         <th>Image</th>
+                                        <th>Tiêu Đề</th>
+                                        <th>Nội Dung</th>
                                         <th>Hiển Thị</th>
                                         <th style="text-align: center;">Action</th>
                                     </tr>
@@ -24,44 +25,32 @@
                                     @php
                                         $i = 0;
                                     @endphp
-                                    @foreach ($listSlide as $slide)
+                                    @foreach ($listImage as $item)
                                         @php
                                             $i = $i + 1;
                                         @endphp
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            <td>{{ $slide->title }}</td>
-                                            {{-- <td>
-                                                {{ substr(strip_tags($slide->content), 0, 30) }}
-                                            </td> --}}
+                                            <td><img class="img-thumbnail"
+                                                    src="{{ asset(Storage::url('Image/' . $item->image)) }}" >
+                                            </td>
+                                            <td>{{ $item->title }}</td>
                                             <td>
-                                                <a>Số lượng ảnh : {{ $slide->num_images }}</a>
-                                                <a class="btn btn-app"
-                                                    href="{{ route('Slide.AddImage', ['id' => $slide->id]) }}">
-                                                    <i class="fas fa-file-image"></i> Thêm Ảnh
-                                                </a>
-                                                <a class="btn btn-app"
-                                                    href="{{ route('Slide.Image', ['id' => $slide->id]) }}">
-                                                    <i class="fas fa-eye"></i> Xem Ảnh
-                                                </a>
+                                                {{ substr(strip_tags($item->content), 0, 30) }}
                                             </td>
                                             <td>
                                                 <input type="checkbox" class="input-switch" name="status"
-                                                    value="{{ $slide->status }}" data-slide-id="{{ $slide->id }}"
+                                                    value="{{ $item->status }}" data-image-id="{{ $item->id }}"
                                                     data-on-text="On" data-off-text="Off"
-                                                    {{ $slide->status == 1 ? 'checked' : '' }}>
+                                                    {{ $item->status == 1 ? 'checked' : '' }}>
                                             </td>
                                             <td style="text-align: center;">
-                                                <a class="btn btn-app"
-                                                    href="{{ route('Slide.Detail', ['id' => $slide->id]) }}">
-                                                    <i class="fas fa-eye"></i> Chi Tiết
-                                                </a>
-                                                <a class="btn btn-app" href="{{ route('Slide.Edit', ['id' => $slide->id]) }}">
+                                                <a class="btn btn-app" href="{{route('Slide.EditImage', ['id' => $item->id])}}">
                                                     <i class="fas fa-edit"></i> Sửa
                                                 </a>
                                                 <a class="btn btn-app"
                                                     onclick=" return confirm('Bạn có chắc chắn muốn xóa không')"
-                                                    href="{{ route('Slide.Delete', ['id' => $slide->id]) }}">
+                                                    href="{{ route('Slide.DeleteImage', ['id' => $item->id]) }}">
                                                     <i class="fas fa-trash-alt"></i> Xóa
                                                 </a>
                                             </td>
@@ -91,10 +80,10 @@
             $('.input-switch').bootstrapSwitch();
             $('.input-switch').on('switchChange.bootstrapSwitch', function(event, state) {
                 var status = state ? 1 : 2;
-                var slideId = $(this).data('slide-id'); // lấy giá trị slide_id từ thuộc tính data-slide-id
+                var imageId = $(this).data('image-id'); // lấy giá trị slide_id từ thuộc tính data-slide-id
                 $.ajax({
-                    url: "{{ route('Slide.Status', ['id' => ':slideId']) }}".replace(':slideId',
-                        slideId), // lấy giá trị thực tế của slideId gán vào id khi người dùng thực hiện yêu cầu ajax
+                    url: "{{ route('Slide.StatusImage', ['id' => ':imageId']) }}".replace(':imageId',
+                        imageId), // lấy giá trị thực tế của slideId gán vào id khi người dùng thực hiện yêu cầu ajax
                     method: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",

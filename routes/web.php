@@ -60,12 +60,29 @@ Route::prefix('admin')->group(function () {
             Route::get('/add','AddSlide')->name('Add');
             Route::post('/add','AddSlidePost')->name('AddPost');
             Route::get('/list','ListSlide')->name('List');
+            Route::get('/delete/{id}', 'Delete')->name('Delete');
 
-
+            
+            
             Route::get('/add-image/{id}', 'AddImage')->name('AddImage');
             Route::post('/add-image', 'AddImagePost')->name('AddImagePost');
 
             Route::get('/detail/{id}', 'SlideDetail')->name('Detail');
+
+            Route::get('/image/{id}', 'Image')->name('Image');
+            Route::get('/delete-image/{id}', 'DeleteImage')->name('DeleteImage');
+
+            Route::post('status/{id}','Status')->name('Status');
+            Route::post('status-image/{id}','StatusImage')->name('StatusImage');
+
+            Route::get('edit/{id}','Edit')->name('Edit');
+            Route::post('edit-post/{id}','EditPost')->name('EditPost');
+
+            Route::get('edit-image/{id}','EditImage')->name('EditImage');
+            Route::post('edit-image-post/{id}','EditImagePost')->name('EditImagePost');
+
+
+            
         });
     });
 });

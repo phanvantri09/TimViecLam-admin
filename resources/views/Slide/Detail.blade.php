@@ -10,7 +10,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form>
                             @csrf
                             <div class="card-body">
 
@@ -30,24 +30,42 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Image">Image</label>
-                                    <div class="row">
-                                        @foreach ($slideImage as $item)
-                                            <div class="col-md-4">
-                                                <a href="{{ asset(Storage::url('Image/' . $item->image)) }}"
-                                                    data-lightbox="gallery">
-                                                    <img src="{{ asset(Storage::url('Image/' . $item->image)) }}"
-                                                        class="img-fluid">
-                                                </a>
-                                            </div>
-                                        @endforeach
-                                        
-                                       
+                                    @php
+                                        $i = 0;
+                                    @endphp
+                                    @foreach ($slideImage as $item)
+                                        @php
+                                            $i = $i + 1;
+                                            $caption = 'caption' . $i;
+                                        @endphp
+                                        <div class="{{ $caption }}" style="display:none">
+                                            <h4>{{ $item->title }}</h4>
+                                            <p>{{ strip_tags($item->content) }}</p>
+                                        </div>
+                                    @endforeach
 
+
+                                    <div class="container-box">
+                                        <div id="lightgallery">
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($slideImage as $item)
+                                                @php
+                                                    $i = $i + 1;
+                                                    $caption = '.caption' . $i;
+                                                @endphp
+                                                <a data-sub-html="{{ $caption }}"
+                                                    href="{{ asset(Storage::url('Image/' . $item->image)) }}"><img
+                                                        class="img-thumbnail"
+                                                        src="{{ asset(Storage::url('Image/' . $item->image)) }}"></a>
+                                            @endforeach
+
+                                        </div>
                                     </div>
+
                                 </div>
                                 <!-- /.card-body -->
-
-
                         </form>
                         <div class="card-footer">
                             <button class="btn btn-primary"><a
@@ -63,7 +81,8 @@
     <script>
         $(document).ready(function() {
             $('#summernote').summernote();
-            lightbox.init();
+            // lightbox.init();
+            $("#lightgallery").lightGallery();
         });
     </script>
 @endsection

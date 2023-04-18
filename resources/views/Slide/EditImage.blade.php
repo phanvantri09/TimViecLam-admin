@@ -6,44 +6,36 @@
                 <div class="col">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Thêm Ảnh Slide</h3>
+                            <h3 class="card-title">Sửa</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('Slide.AddImagePost') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('Slide.EditImagePost', $image->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
-                                <input type="hidden" name="id_slide" class="form-control" value="{{ $id }}">
                                 <div class="form-group">
                                     <label for="title">Tiêu Đề </label>
-                                    <input type="text" name="title" class="form-control" placeholder="Nhập tiêu đề"
+                                    <input type="text" name="title" class="form-control" value="{{ $image->title }}"
                                         required>
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Nội Dung </label>
-                                    <textarea name="content" id="summernote" required></textarea>
+                                    <textarea name="content" id="summernote" required>{{ $image->content }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Image</label> <br>
-                                    <label class="btn btn-primary btn-md btn-file">Chọn ảnh
+                                    <label class="btn btn-primary btn-md btn-file">Upload
                                         <input name="image" type="file" hidden onchange="previewImage()">
                                     </label><br>
-                                    <img id="image_preview"
-                                        style=" width: 300px; height: auto; margin-right: 2em;">
+                                    <img id="image_preview" class="img-thumbnail"
+                                        src="{{ asset(Storage::url('Image/' . $image->image)) }}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="status">Hiển Thị </label><br>
-                                    <input type="hidden" name="status" value="2">
-                                    <input type="checkbox" name="status" data-toggle="switch" data-on-text="On"
-                                        data-off-text="Off" value="1">
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
                                 </div>
-
-                            </div>
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Thêm</button>
-                            </div>
                         </form>
                     </div>
                 </div>
