@@ -32,10 +32,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="index3.html" class="nav-link">Trang chủ</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">Liên hệ</a>
                 </li>
             </ul>
 
@@ -166,6 +166,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <span class="brand-text font-weight-light " style="text-align: center">Admin</span>
             </a>
 
+
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -174,7 +175,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="{{ asset('dist/img/user2-160x160.jpg') }} " class="img-circle elevation-2" alt="User Image">
           </div> --}}
                     <div class="info">
-                        <a href="#" class="d-block">Phan Văn Trí</a>
+
+                        <a class="btn btn-primary d-block" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">Đăng
+                            xuất</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </div>
 
@@ -197,39 +205,70 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
+                        <li class="nav-header">TỔNG QUÁT CHUNG</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p> Dashboard <i class="right fas fa-angle-left"></i>
+                                <p> Tổng quan <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="../../index.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v1</p>
+
+                                        <p>Người dùng</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="../../index2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p>
+                                        <p>Lượng truy cập</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="../../index3.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v3</p>
+                                        <p>Bài đăng tuyển dụng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../index3.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ứng tuyển</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="../widgets.html" class="nav-link">
+
+                            <a class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p> Widgets <span class="right badge badge-danger">New</span>
+                                <p> Giao diện <i class="right fas fa-angle-left"></i>
+                                    <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../index3.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Logo</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../index.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Slides</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../index2.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Quảng cáo</p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                         {{-- <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
@@ -680,6 +719,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
                 </li>
                  --}}
+
+
+                        <li class="nav-header">NGƯỜI DÙNG</li>
                         <li class="nav-item">
                             <a href="{{ route('User.Add', ['type' => 333]) }}" class="nav-link">
                                 <i class="nav-icon fas fa-circle"></i>
@@ -692,6 +734,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-circle"></i>
                                 <p> Người tìm việc <i class="right fas fa-angle-left"></i>
+
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -718,12 +761,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+
                                     <a href="{{ route('User.Add', ['type' => 222]) }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
+
                                     <a href="{{ route('User.List', ['type' => 222]) }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Danh sách <i class="right fas fa-angle-left"></i>
@@ -734,27 +779,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         {{-- <li class="nav-header">TUYỂN DỤNG</li> --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                {{-- <i class="nav-icon far fa-circle text-danger"></i> --}}
-                                <p class="text">TUYỂN DỤNG <i class="right fas fa-angle-left"></i></p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('Job.Add') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('Job.List') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Danh sách <i class="right fas "></i>
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-circle text-warning"></i>
@@ -775,30 +799,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../search/simple.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Simple Search</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../search/enhanced.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Enhanced</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Slide
-                                    <i class="fas fa-angle-left right"></i>
-
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
                                     <a href="{{ route('Slide.Add') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm Slide</p>
@@ -812,17 +812,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-header">MISCELLANEOUS</li>
+                        <li class="nav-header">SỰ KIỆN</li>
                         <li class="nav-item">
                             <a href="../../iframe.html" class="nav-link">
                                 <i class="nav-icon fas fa-ellipsis-h"></i>
-                                <p>Tabbed IFrame Plugin</p>
+                                <p>Tạo sự kiện</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../../iframe.html" class="nav-link">
+                                <i class="nav-icon fas fa-ellipsis-h"></i>
+                                <p>Lịch sự kiện</p>
+                            </a>
+                        </li>
+                        <li class="nav-header">NÂNG CAO</li>
+                        <li class="nav-item">
+                            <a href="../../iframe.html" class="nav-link">
+                                <i class="nav-icon fas fa-ellipsis-h"></i>
+                                <p>Tạo từ khóa cấm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../../iframe.html" class="nav-link">
+                                <i class="nav-icon fas fa-ellipsis-h"></i>
+                                <p>Danh sách từ khóa cấm</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="https://adminlte.io/docs/3.1/" class="nav-link">
                                 <i class="nav-icon fas fa-file"></i>
-                                <p>Documentation</p>
+                                <p>Tài liệu tham khảo</p>
                             </a>
                         </li>
                     </ul>
@@ -832,22 +851,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.sidebar -->
         </aside>
         <section class="content-header">
-            <div class="container">
+
+            <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>{{ $title }}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">General Form</li>
+
+                            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                            {{-- <li class="breadcrumb-item active">Liên hệ</li> --}}
                         </ol>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
         <!-- Content Wrapper. Contains page content -->
-        @yield('content')
+
+        <div class="content-wrapper" tyle="min-height: 1345.31px;">
+            @yield('content')
+
+        </div>
         <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
@@ -864,11 +889,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-                Anything you want
+
+                Admin website tìm việc làm
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
+            <strong>Được tạo bởi team dev Phan Văn Trí </strong>
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -877,6 +902,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- jQuery -->
     <script src="{{ asset('js/app.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-switch@3.3.4/dist/js/bootstrap-switch.min.js"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
