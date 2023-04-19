@@ -95,9 +95,21 @@ Route::prefix('admin')->group(function () {
     Route::group(['prefix'=>'Overview', 'as'=>'Overview.'],function () {
         Route::controller(OverviewController::class)->group(function () {
             Route::get('/add-overview', 'OverView')->name('overview');
+
+
+            Route::get('/list-user', 'ListUserOverView')->name('ListUser');
+
+            Route::get('/list-user-recruit', 'ListUserRecruitOverView')->name('ListRecruit');
+
+            Route::get('/add-list-post', 'ListPostOverView')->name('ListPost');
+
+            Route::get('/edit-list-post/{id}', 'EditListPostOverView')->name('EditPost');
+            
+
             Route::get('/list-user', 'ListUserOverView')->name('ListUser');
             Route::get('/list-user-recruit', 'ListUserRecruitOverView')->name('ListRecruit');
             Route::get('/add-overview', 'OverView')->name('overview');
+ 
         });
     });
 });

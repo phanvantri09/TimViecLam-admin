@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jobs;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,5 +36,15 @@ class OverviewController extends Controller
   {
     $users = User::all();
     return view('admin.ListUserOverview', compact(['users']));
+
+  public function ListPostOverView(){
+    $listPost = DB::table('post_job')->get();
+    return view('admin.listPostOverview',compact(['listPost']));
   }
+
+  public function EditListPostOverView($id){
+    $editPost = DB::table('post_job')->where('id', $id)->get()[0];
+    return view('admin.editPostOverview',compact(['editPost']));
+  }
+
 }
