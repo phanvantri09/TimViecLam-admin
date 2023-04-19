@@ -1,5 +1,9 @@
 @extends('layouts.master')
 @section('content')
+    @php
+        use App\Helpers\CommonFunction;
+        use App\Helpers\CommonVaiation;
+    @endphp
 <section class="content">
         <div class="container">
             <div class="row">
@@ -67,13 +71,13 @@
                                                         <td class="dtr-control sorting_1" tabindex="0">
                                                             {{ $list->title }}
                                                         </td>
-                                                        <td>{{ $list->id_category_job }}</td>
-                                                        <td>{{ $list->id_type_work }}</td>
+                                                        <td>{{ CommonFunction::categoryJob(explode(',', $list->id_category_job)) }}</td>
+                                                        <td>{{ CommonFunction::typeWork($list->id_type_work)->name }}</td>
                                                         <td>{{ $list->amount }}</td>
                                                         <td>{{ $list->time_start }} <br> {{ $list->time_end }}</td>
                                                         <td>{{ $list->price_start }} <br> {{ $list->price_end }}</td>
-                                                        <td><a href="" class="btn btn-app">
-                                                                <i class="fas fa-edit"></i> Sửa
+                                                        <td><a href="{{ route('Overview.EditPost',['id' => $list->id])}}" class="btn btn-app">
+                                                                <i class="fas fa-edit"></i> chi tiết
                                                             </a>
                                                             <a href="" class="btn btn-app">
                                                                 <i class="fas fa-pause"></i> Xóa
