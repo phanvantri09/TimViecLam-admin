@@ -88,8 +88,15 @@ Route::prefix('admin')->group(function () {
             
     Route::group(['prefix'=>'SensitiveKeyword', 'as'=>'SensitiveKeyword.'],function () {
         Route::controller(SensitiveKeywordController::class)->group(function () {
-            Route::get('/add-keysensitive', 'GetKeywordSensitive')->name('KeywordSensitive');
-            Route::post('/add-keysensitive', 'PostKeywordSensitive')->name('KeywordSensitive');
+            Route::get('/keysensitive', 'GetKeywordSensitive')->name('KeywordSensitive');
+
+            Route::get('/list-keysensitive', 'ListKeywordSensitive')->name('KeywordSensitive');
+
+            //Route::get('/add-keysensitive', 'AddKeywordSensitive')->name('addKeywordSensitive');
+            Route::post('/add-keysensitive', 'AddKeywordSensitive')->name('addKeywordSensitive');
+
+            Route::get('/delete-keysensitive/{id}', 'DeleteKeywordSensitive')->name('deleteKeyword');
+
         });
     });
     Route::group(['prefix'=>'Overview', 'as'=>'Overview.'],function () {

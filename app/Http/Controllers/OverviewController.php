@@ -36,7 +36,7 @@ class OverviewController extends Controller
   {
     $users = User::all();
     return view('admin.ListUserOverview', compact(['users']));
-
+  }
   public function ListPostOverView(){
     $listPost = DB::table('post_job')->get();
     return view('admin.listPostOverview',compact(['listPost']));
