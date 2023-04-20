@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SensitiveKeywordController extends Controller
 {
    public function GetKeywordSensitive(){
-    return view('admin.keywordSensitive');
-   }
-   public function PostKeywordSensitive( Request $request ){
-      
-
+    $keyWords = DB::table('keyword_sensitive')->pluck('name')->toArray();
+    return view('admin.keywordSensitive', compact(['keyWords']));
    }
 }

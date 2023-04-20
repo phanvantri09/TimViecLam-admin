@@ -22,7 +22,7 @@
                                     <input type="hidden" name="type" value="">
                                     <input type="hidden" name="id" value="">
                                     <label for="exampleInputEmail1">Tên </label>
-                                    <input value="" type="text" name="name" class="form-control" id="exampleInputEmail1"
+                                    <input value="" type="text" name="name" class="form-control" id="inputKey"
                                         placeholder="nhập thử xem sao">
                                     <div id="error" style="display: none;">Xin hãy nhập lại vì chứa từ cấm</div>
                                 </div>
@@ -34,24 +34,25 @@
         </div>
     </section>
     <script>
-    $(document).ready(function() {
-        $('input[type="text"]').on('input', function() {
-            var inputText = $(this).val();
-            var keywords = {!! json_encode(DB::table('keyword_sensitive')->pluck('name')->toArray()) !!};
-            var found = false;
-            for (var i = 0; i < keywords.length; i++) {
-                if (inputText.indexOf(keywords[i]) !== -1) {
-                    found = true;
-                    break;
-                }
+    var keywords = {!! json_encode($keyWords) !!};
+    var inputField = $('#inputKey');
+    var error = $('#error');
+
+    inputField.on('input', function() {
+        var value = $(this).val();
+        var hasError = false;
+        for (var i = 0; i < keywords.length; i++) {
+            if (value.indexOf(keywords[i]) !== -1) {
+                hasError = true;
+                break;
             }
-            if (found) {
-                $('#error').show();
-                $(this).val('');
-            } else {
-                $('#error').hide();
-            }
-        });
+        }
+        if (hasError) {
+            error.show();
+            inputKey.val('');
+        } else {
+            error.hide();
+        }
     });
     </script>
 @endsection
