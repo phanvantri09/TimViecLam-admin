@@ -24,14 +24,13 @@
                 <div>
                   <h2>{{empty($editPost->title) ? '' : $editPost->title}}</h2>
                   <div>
-                    <span class="ml-0 mr-2 mb-2"><span class="icon-briefcase mr-2"></span>Puma</span>
                     <span class="m-2"><span class="icon-room mr-2"></span>{{$editPost->address_user}}</span>
                     <span class="m-2"><span class="icon-clock-o mr-2"></span><span class="text-primary">{{ CommonFunction::typeWork($editPost->id_type_work)->name }}</span></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
               <div class="row">
                 <div class="col-6">
                   <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Lưu</a>
@@ -40,7 +39,7 @@
                   <a href="#" class="btn btn-block btn-primary btn-md">Nộp hồ sơ</a>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
           <div class="row">
             <div class="col-lg-12">
@@ -126,14 +125,14 @@
                   </ul>
                 </div>
 
-                <div class="row mb-5">
+                {{-- <div class="row mb-5">
                   <div class="col-6">
                     <a href="#" class="btn btn-block btn-light btn-md"><span class="icon-heart-o mr-2 text-danger"></span>Lưu</a>
                   </div>
                   <div class="col-6">
                     <a href="#" class="btn btn-block btn-primary btn-md">Nộp hồ sơ</a>
                   </div>
-                </div>
+                </div> --}}
               </div>
 
               <div class="p-3 border rounded mb-4 shadow-red">

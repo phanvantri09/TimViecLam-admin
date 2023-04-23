@@ -22,7 +22,7 @@ use App\Http\Controllers\OverviewController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\OverviewController::class, 'OverView'])->name('home');
 
 Route::prefix('admin')->group(function () {
     Route::group(['prefix'=>'Job', 'as'=>'Job.'],function () {
@@ -32,7 +32,7 @@ Route::prefix('admin')->group(function () {
             // Route::get('/list/{id}', 'List')->name('List');
             Route::get('/add', 'Add')->name('Add');
             Route::post('/add-post', 'AddPost')->name('AddPost');
-    
+
             Route::get('/edit/{id}', 'Edit')->name('Edit');
             Route::post('/edit-post', 'EditPost')->name('EditPost');
 
@@ -46,14 +46,14 @@ Route::prefix('admin')->group(function () {
             Route::get('/show/{id}', 'Show');
             Route::get('/add/{type}', 'Add')->name('Add');
             Route::post('/add-post', 'AddPost')->name('AddPost');
-    
+
             Route::get('/edit/{id}', 'Edit')->name('Edit');
             Route::post('/edit-post', 'EditPost')->name('EditPost');
 
             Route::get('/delete/{id}', 'Delete')->name('Delete');
 
             Route::get('/apply/{id}', 'Apply')->name('Apply');
-            
+
             Route::get('/job/{id}', 'Job')->name('Job');
 
         });
@@ -65,8 +65,8 @@ Route::prefix('admin')->group(function () {
             Route::get('/list','ListSlide')->name('List');
             Route::get('/delete/{id}', 'Delete')->name('Delete');
 
-            
-            
+
+
             Route::get('/add-image/{id}', 'AddImage')->name('AddImage');
             Route::post('/add-image', 'AddImagePost')->name('AddImagePost');
 
@@ -85,14 +85,14 @@ Route::prefix('admin')->group(function () {
             Route::post('edit-image-post/{id}','EditImagePost')->name('EditImagePost');
         });
     });
-            
+
     Route::group(['prefix'=>'SensitiveKeyword', 'as'=>'SensitiveKeyword.'],function () {
         Route::controller(SensitiveKeywordController::class)->group(function () {
             Route::get('/keysensitive', 'GetKeywordSensitive')->name('KeywordSensitive');
 
             Route::get('/list-keysensitive', 'ListKeywordSensitive')->name('KeywordSensitive');
 
-            //Route::get('/add-keysensitive', 'AddKeywordSensitive')->name('addKeywordSensitive');
+            // Route::get('/add-keysensitive', 'AddKeywordSensitive')->name('addKeywordSensitive');
             Route::post('/add-keysensitive', 'AddKeywordSensitive')->name('addKeywordSensitive');
 
             Route::get('/delete-keysensitive/{id}', 'DeleteKeywordSensitive')->name('deleteKeyword');
@@ -108,15 +108,15 @@ Route::prefix('admin')->group(function () {
 
             Route::get('/list-user-recruit', 'ListUserRecruitOverView')->name('ListRecruit');
 
-            Route::get('/add-list-post', 'ListPostOverView')->name('ListPost');
+            Route::get('/list-post', 'ListPostOverView')->name('ListPost');
 
             Route::get('/edit-list-post/{id}', 'EditListPostOverView')->name('EditPost');
-            
+
 
             Route::get('/list-user', 'ListUserOverView')->name('ListUser');
             Route::get('/list-user-recruit', 'ListUserRecruitOverView')->name('ListRecruit');
-            Route::get('/add-overview', 'OverView')->name('overview');
- 
+            // Route::get('/add-overview', 'OverView')->name('overview');
+
         });
     });
 });

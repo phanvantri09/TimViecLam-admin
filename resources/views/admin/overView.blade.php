@@ -222,7 +222,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="form-row">
+                {{-- <div class="form-row">
                     <table class="table mt-4" id="data-table">
                         <thead>
                             <tr>
@@ -243,7 +243,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
             </div>
     </div>
 @endsection

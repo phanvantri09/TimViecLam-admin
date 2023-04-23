@@ -56,7 +56,7 @@
                                                     $caption = '.caption' . $i;
                                                 @endphp
                                                 <a data-sub-html="{{ $caption }}"
-                                                    href="{{ asset(Storage::url('Image/' . $item->image)) }}"><img
+                                                    href="{{ Storage::url('Image/' . $item->image) }}"><img
                                                         class="img-thumbnail"
                                                         src="{{ asset(Storage::url('Image/' . $item->image)) }}"></a>
                                             @endforeach
