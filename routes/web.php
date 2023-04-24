@@ -6,6 +6,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\SensitiveKeywordController;
 use App\Http\Controllers\OverviewController;
+use App\Http\Controllers\TabMenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,5 +120,18 @@ Route::prefix('admin')->group(function () {
 
         });
     });
+    Route::group(['prefix'=>'TabMenu', 'as'=>'TabMenu.'],function () {
+        Route::controller(TabMenuController::class)->group(function () {
+            Route::get('/create', 'TabMenuController')->name('Create');
+            Route::post('/create-tab', 'TabMenuController')->name('CreatTab');
+
+            Route::get('/edit/{id}', 'TabMenuController')->name('Edit');
+            Route::post('/edit-tab/{id}', 'TabMenuController')->name('EditTab');
+
+            Route::get('/delete/{id}', 'TabMenuController')->name('Delete');
+            Route::delete('delete-tab/{id}', 'TabMenuController')->name('DeleteTab');
+        });
+    });
+
 });
 
