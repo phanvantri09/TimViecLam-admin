@@ -6,7 +6,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\SensitiveKeywordController;
 use App\Http\Controllers\OverviewController;
-use App\Http\Controllers\TabMenuController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,16 +120,28 @@ Route::prefix('admin')->group(function () {
 
         });
     });
-    Route::group(['prefix'=>'TabMenu', 'as'=>'TabMenu.'],function () {
-        Route::controller(TabMenuController::class)->group(function () {
-            Route::get('/create', 'TabMenuController')->name('Create');
-            Route::post('/create-tab', 'TabMenuController')->name('CreatTab');
+    Route::group(['prefix'=>'Menu', 'as'=>'Menu.'],function () {
+        Route::controller(MenuController::class)->group(function () {
+            Route::get('/add', 'AddMenu')->name('Add');
+            Route::post('/add', 'AddMenuPost')->name('AddPost');
 
-            Route::get('/edit/{id}', 'TabMenuController')->name('Edit');
-            Route::post('/edit-tab/{id}', 'TabMenuController')->name('EditTab');
+            Route::get('/list','ListMenu')->name('List');
+            Route::get('/delete/{id}', 'Delete')->name('Delete');
+            Route::post('status/{id}','Status')->name('Status');
+            Route::post('status-tab/{id}','StatusTab')->name('StatusTab');
 
-            Route::get('/delete/{id}', 'TabMenuController')->name('Delete');
-            Route::delete('delete-tab/{id}', 'TabMenuController')->name('DeleteTab');
+            Route::get('/add-tab', 'AddMenuTab')->name('AddTab');
+            Route::post('/add-tab', 'AddMenuTabPost')->name('AddTabPost');
+            Route::get('/list-tab/{id}', 'ListTab')->name('ListTab');
+            Route::get('/delete-tab/{id}', 'DeleteTab')->name('DeleteTab');
+
+            Route::get('edit/{id}','Edit')->name('Edit');
+            Route::post('edit-post/{id}','EditPost')->name('EditPost');
+
+            Route::get('edit-tab/{id}','EditTab')->name('EditTab');
+            Route::post('edit-tab-post/{id}','EditTabPost')->name('EditTabPost');
+
+
         });
     });
 
