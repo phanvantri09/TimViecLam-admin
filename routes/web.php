@@ -7,6 +7,7 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\SensitiveKeywordController;
 use App\Http\Controllers\OverviewController;
 use App\Http\Controllers\MenuController;
+use App\Http\controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,6 +141,21 @@ Route::prefix('admin')->group(function () {
 
             Route::get('edit-tab/{id}','EditTab')->name('EditTab');
             Route::post('edit-tab-post/{id}','EditTabPost')->name('EditTabPost');
+
+
+        });
+    });
+    Route::group(['prefix'=>'Blog', 'as'=>'Blog.'],function () {
+        Route::controller(BlogController::class)->group(function () {
+            Route::get('/list', 'ListBlog')->name('List');
+
+            Route::get('/add', 'AddBlog')->name('Add');
+            Route::post('/add', 'AddBlogPost')->name('AddBlog');
+
+            Route::get('/delete/{id}', 'DeleteBlog')->name('Delete');
+
+            Route::get('/update/{id}', 'UpdateBlog')->name('Update');
+            Route::post('/update-post/{id}', 'UpdateBlogPost')->name('UpdateBlogPost');
 
 
         });
