@@ -20,6 +20,7 @@ class CreateTabMenuTable extends Migration
             $table->string('content');
             $table->string('tab');
             $table->integer('id_menu');
+            $table->integer('link_page');
             $table->integer('type_user')->default(111)->comment("111=>người Tìm việc, 222 => người tuyển dụng");
             $table->timestamps();
         });

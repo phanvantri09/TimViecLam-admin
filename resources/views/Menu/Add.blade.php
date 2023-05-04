@@ -15,15 +15,16 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="title">Tiêu Đề </label>
-                                    <input type="text" name="title" class="form-control" placeholder="Nhập tiêu đề" required>
+                                    <input type="text" name="title" class="form-control" placeholder="Nhập tiêu đề"
+                                        required>
                                 </div>
                                 <div class="form-group">
                                     <label for="status">URL Hiển Thị </label>
-                                    <select name="link_page" class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true" required>
-                                        <option selected="selected" value="Alabama" data-select2-id="3">Alabama</option>
-                                        <option value="Alaska">Alaska</option>
-                                        <option value="California">California</option>
+                                    <select name="link_page" class="form-control select2 select2-hidden-accessible"
+                                        style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true" required>
+                                        @foreach ($routes as $item)
+                                            <option value="{{$item->id}}" data-select2-id="3">Tên: {{$item->name}} || Đường dẫn: {{$item->path}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -32,13 +33,28 @@
                                     <input type="checkbox" name="status" data-toggle="switch" data-on-text="On"
                                         data-off-text="Off" value="1">
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Hiển thị cho</label>
+                                    <div>
+                                        <input type="radio" name="type" value="111">
+                                        <label for="status"> Người tìm việc </label>
+                                    </div>
 
-                            </div>
-                            <!-- /.card-body -->
+                                    <div>
+                                        <input type="radio" name="type" value="111">
+                                        <label for="status"> Nhà tuyển dụng </label>
+                                    </div>
 
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Thêm</button>
-                            </div>
+                                    <div>
+                                        <input type="radio" name="type" value="333">
+                                        <label for="status"> Dành cho tất cả </label>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Thêm</button>
+                                </div>
                         </form>
                     </div>
                 </div>

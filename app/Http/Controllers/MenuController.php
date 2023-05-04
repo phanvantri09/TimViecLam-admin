@@ -11,7 +11,8 @@ class MenuController extends Controller
 {
    public function AddMenu(){
     $title = "Menu";
-    return view('Menu.Add',compact('title'));
+    $routes = DB::table('routes')->get();
+    return view('Menu.Add',compact(['title', 'routes']));
    }
    public function AddMenuPost(Request $request){
 
@@ -19,6 +20,7 @@ class MenuController extends Controller
     $menu->title = $request->title;
     $menu->link_page = $request->link_page;
     $menu->status = $request->status;
+    $menu->type = $request->type;
     $menu->save();
 
     return redirect()->route('Menu.List')->with('success', 'Thêm thành công');
@@ -75,8 +77,8 @@ class MenuController extends Controller
     public function AddMenuTab(){
         $title = "Tab Menu";
         $menu = Menus::all();
-        
-        return view('Menu.AddTab',compact(['title','menu']));
+        $routes = DB::table('routes')->get();
+        return view('Menu.AddTab',compact(['title','menu','routes']));
     }
     public function AddMenuTabPost(Request $request){
         $tabMenu = new TabMenu();
