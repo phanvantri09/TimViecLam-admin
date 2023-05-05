@@ -22,10 +22,14 @@
                                     <textarea name="content" id="summernote">{{$slide->content}}</textarea>
                                 </div> --}}
                                 <div class="form-group">
-                                    <label for="status">URL</label>
-                                    <input type="text" name="link_page" class="form-control"
-                                    value="{{$menu->link_page}}">
-                                </div>                              
+                                    <label for="tab">URL mặt định</label>
+                                    <select name="link_page" class="form-control select2 select2-hidden-accessible"
+                                        style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true" required>
+                                        @foreach ($routes as $item)
+                                            <option {{ ($item->id == $menu->link_page) ? 'selected' : '' }} value="{{$item->id}}" data-select2-id="3">Tên: {{$item->name}} || Đường dẫn: {{$item->path}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>                        
                             </div>
                             <!-- /.card-body -->
 

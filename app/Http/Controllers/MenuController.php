@@ -21,6 +21,13 @@ class MenuController extends Controller
     $menu->link_page = $request->link_page;
     $menu->status = $request->status;
     $menu->type = $request->type;
+    if ($request->status == 1) {
+        $menuStatus = Menus::where('status', 1)->where('type',$request->type)->get();
+        foreach ($menuStatus as $key => $value) {
+            $value->status = 2;
+            $value->save();
+        }
+    }
     $menu->save();
 
     return redirect()->route('Menu.List')->with('success', 'Thêm thành công');
@@ -49,6 +56,11 @@ class MenuController extends Controller
     $menu = Menus::find($id);
 
         if ($request->input('status') == 1) {
+            $menuStatus = Menus::where('status', 1)->where('type',$menu->type)->get();
+            foreach ($menuStatus as $key => $value) {
+                $value->status = 2;
+                $value->save();
+            }
             $menu->status = $request->input('status');
             $menu->save();
 
@@ -74,21 +86,22 @@ class MenuController extends Controller
                 return response()->json(['status' => 2]);
             }
         }
-    public function AddMenuTab(){
+    public function AddMenuTab($id){
         $title = "Tab Menu";
         $menu = Menus::all();
         $routes = DB::table('routes')->get();
-        return view('Menu.AddTab',compact(['title','menu','routes']));
+        return view('Menu.AddTab',compact(['id','title','menu','routes']));
     }
     public function AddMenuTabPost(Request $request){
         $tabMenu = new TabMenu();
 
         $tabMenu->title = $request->title;
         $tabMenu->content = $request->content;
-        $tabMenu->tab = $request->tab;
+        // $tabMenu->tab = $request->tab;
         $tabMenu->id_menu = $request->id_menu;
         $tabMenu->type_user = $request->type_user;
         $tabMenu->status = $request->status;
+        $tabMenu->link_page = $request->link_page;
         $tabMenu->save();
 
         return redirect()->route('Menu.List')->with('success', 'Thêm thành công');
@@ -105,7 +118,8 @@ class MenuController extends Controller
     public function Edit($id){
         $title = "Sửa ";
         $menu = Menus::find($id);
-        return view('Menu.Edit', compact(['title','menu']));
+        $routes = DB::table('routes')->get();
+        return view('Menu.Edit', compact(['title','menu', 'routes']));
     }
     public function EditPost(Request $request, $id){
         $menu = Menus::find($id);
@@ -118,16 +132,17 @@ class MenuController extends Controller
         $title = "Sửa ";
         $menu = Menus::all();
         $tabMenu = TabMenu::find($id);
-        return view('Menu.EditTab', compact(['title','tabMenu','menu']));
+        $routes = DB::table('routes')->get();
+        return view('Menu.EditTab', compact(['title','tabMenu','menu','routes']));
     }
     public function EditTabPost(Request $request, $id){
         $tabMenu = TabMenu::find($id);
 
         $tabMenu->title = $request->title;
         $tabMenu->content = $request->content;
-        $tabMenu->tab = $request->tab;
-        $tabMenu->id_menu = $request->id_menu;
-        $tabMenu->type_user = $request->type_user;
+        // $tabMenu->id_menu = $request->id_menu;
+        $tabMenu->link_page = $request->link_page;
+        // $tabMenu->type_user = $tabMenu->type_user;
         $tabMenu->save();
 
         return back()->with('success', 'Thêm thành công');

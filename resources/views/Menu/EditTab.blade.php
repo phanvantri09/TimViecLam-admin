@@ -21,12 +21,7 @@
                                     <label for="content">Nội Dung </label>
                                     <textarea name="content" id="summernote">{{$tabMenu->content}}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="tab">URL Redirect</label>
-                                    <input type="text" name="tab" class="form-control"
-                                    value="{{$tabMenu->tab}}">
-                                </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="status">Menu</label>
                                     <select name="id_menu" class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true" required>
@@ -39,8 +34,17 @@
                                         @endforeach
                                         
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
+                                    <label for="tab">URL chuyển hướng khi nhấn</label>
+                                    <select name="link_page" class="form-control select2 select2-hidden-accessible"
+                                        style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true" required>
+                                        @foreach ($routes as $item)
+                                            <option {{ ($item->id == $tabMenu->link_page) ? 'selected' : '' }} value="{{$item->id}}" data-select2-id="3">Tên: {{$item->name}} || Đường dẫn: {{$item->path}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                {{-- <div class="form-group">
                                     <label for="status">Người dùng được hiển thị</label>
                                     <select name="type_user" class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true"  required>
@@ -53,7 +57,7 @@
                                         @endif
                                         
                                     </select>
-                                </div>
+                                </div> --}}
 
                             </div>
                             <!-- /.card-body -->

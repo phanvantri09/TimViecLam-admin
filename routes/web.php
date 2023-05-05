@@ -131,7 +131,7 @@ Route::prefix('admin')->group(function () {
             Route::post('status/{id}','Status')->name('Status');
             Route::post('status-tab/{id}','StatusTab')->name('StatusTab');
 
-            Route::get('/add-tab', 'AddMenuTab')->name('AddTab');
+            Route::get('/add-tab/{id}', 'AddMenuTab')->name('AddTab');
             Route::post('/add-tab', 'AddMenuTabPost')->name('AddTabPost');
             Route::get('/list-tab/{id}', 'ListTab')->name('ListTab');
             Route::get('/delete-tab/{id}', 'DeleteTab')->name('DeleteTab');

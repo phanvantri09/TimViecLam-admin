@@ -39,7 +39,7 @@
                                             <td>
                                                 <a>Đang có : {{$item->num}} tab </a>
                                                 <a class="btn btn-app"
-                                                    href="{{route('Menu.AddTab')}}">
+                                                    href="{{route('Menu.AddTab',['id'=>$item->id])}}">
                                                     <i class="far fa-plus-square"></i> Thêm Tab
                                                 </a>
                                                 <a class="btn btn-app"

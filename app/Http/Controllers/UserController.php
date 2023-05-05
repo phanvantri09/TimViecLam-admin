@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Jobs;
+use App\Models\PostJob;
 use App\Models\Apply;
 use App\Models\CategoryJob;
 use Illuminate\Support\Facades\Hash;
@@ -66,8 +67,8 @@ class UserController extends Controller
     }
     public function Job($id){
         $title = "Bài Tuyển Dụng";
-        $data = Jobs::where('id_user',$id)->get();
+        $data = PostJob::where('id_user',$id)->get();
         $categoryJob = CategoryJob::all();
-        return view('Job.List', compact(['categoryJob','data','title']));
+        return view('Job.List', compact(['categoryJob','data','title','id']));
     }
 }

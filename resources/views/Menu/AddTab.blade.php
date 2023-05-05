@@ -22,7 +22,7 @@
                                     <textarea name="content" id="summernote"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="tab">URL Redirect</label>
+                                    <label for="tab">URL chuyển hướng khi nhấn</label>
                                     <select name="link_page" class="form-control select2 select2-hidden-accessible"
                                         style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true" required>
                                         @foreach ($routes as $item)
@@ -31,7 +31,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="status">Menu</label>
+                                    <input type="hidden" name="id_menu" value="{{$id}}">
+                                    {{-- <label for="status">Menu</label>
                                     <select name="id_menu" class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true" required>
                                         <option selected="selected" >----Chọn Menu----</option>
@@ -39,7 +40,7 @@
                                             <option value="{{$item->id}}">{{$item->title}}</option>
                                         @endforeach
                                         
-                                    </select>
+                                    </select> --}}
                                 </div>
                                 <div class="form-group">
                                     <label for="status">Người dùng được hiển thị</label>

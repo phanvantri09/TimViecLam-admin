@@ -41,7 +41,7 @@
                                     </div>
 
                                     <div>
-                                        <input type="radio" name="type" value="111">
+                                        <input type="radio" name="type" value="222">
                                         <label for="status"> Nhà tuyển dụng </label>
                                     </div>
 

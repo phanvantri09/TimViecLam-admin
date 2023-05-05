@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jobs;
+use App\Models\PostJob;
 use App\Models\CategoryJob;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Job\CreateJob;
@@ -68,7 +69,8 @@ class JobController extends Controller
         back()->with('oke', 'Thành công');
     }
     public function Status(Request $request){
-        $data = Jobs::find($request->id);
+        // $data = Jobs::find($request->id);
+        $data = PostJob::find($request->id);
         $data->status = $request->status;
         $data->save();
     }
