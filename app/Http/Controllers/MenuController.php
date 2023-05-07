@@ -38,7 +38,7 @@ class MenuController extends Controller
                     ->select('menus.*',DB::raw('COUNT(tab_menu.id) as num'))
                     ->groupBy('menus.id')
                     ->orderByDesc('menus.id')->get();
-    
+
     return view('Menu.List', compact(['title','listMenu']));
    }
 
@@ -71,14 +71,14 @@ class MenuController extends Controller
             return response()->json(['status' => 2]);
         }
     }
-    
+
     public function StatusTab(Request $request, $id){
         $tabMenu = TabMenu::find($id);
-    
+
             if ($request->input('status') == 1) {
                 $tabMenu->status = $request->input('status');
                 $tabMenu->save();
-    
+
                 return response()->json(['status' => 1]);
             } else {
                 $tabMenu->status = $request->input('status');
@@ -106,7 +106,7 @@ class MenuController extends Controller
 
         return redirect()->route('Menu.List')->with('success', 'Thêm thành công');
     }
-    
+
     public function ListTab($id){
 
         $listTab = TabMenu::where('id_menu', $id)->orderBy('id', 'desc')->get();
@@ -145,6 +145,6 @@ class MenuController extends Controller
         // $tabMenu->type_user = $tabMenu->type_user;
         $tabMenu->save();
 
-        return back()->with('success', 'Thêm thành công');
+        return redirect()->back()->with('success', 'Thêm thành công');
     }
 }
