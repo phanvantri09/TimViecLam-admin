@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Nội Dung </label>
-                                    <textarea name="content" id="summernote">{{ empty($UpBlog->content) ? '' : $UpBlog->content }}</textarea>
+                                    <textarea name="content" id="summernote">{!! empty($UpBlog->content) ? '' : $UpBlog->content !!}</textarea>
                                 </div>
                             </div>
                             <!-- /.card-body -->

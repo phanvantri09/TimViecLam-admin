@@ -56,18 +56,15 @@
                                                 @foreach ($List as $list)
                                                     <tr class="odd">
                                                     <td class="dtr-control sorting_1" tabindex="0">
-                                                            {{ $list->id }}
+                                                            {{ empty($list->id) ? '' : $list->id }}
                                                         </td>
                                                         <td class="dtr-control sorting_1" tabindex="0">
-                                                            {{ $list->title }}
+                                                            {{ empty($list->title) ? '' : $list->title }}
                                                         </td>
                                                         <td class="dtr-control sorting_1" tabindex="0">
-                                                            {{ $list->content }}
+                                                            {!!  html_entity_decode($list->content) !!}
                                                         </td>
                                                         <td>
-                                                            <!-- <a href="{{route('Blog.AddBlog')}}" class="btn btn-app">
-                                                                <i class="fas fa-pause"></i> Thêm
-                                                            </a> -->
                                                             <a href="{{ route('Blog.Delete',['id' => $list->id]) }}" class="btn btn-app">
                                                                 <i class="fas fa-edit"></i> Xóa
                                                             </a>
@@ -152,6 +149,15 @@
                     }
                 });
         })
+        // Lấy tất cả các thẻ ảnh trong div .summernote-content
+        $('.summernote-content img').each(function() {
+            // Lấy đường dẫn của ảnh
+            var imgSrc = $(this).attr('src');
+            // Thay đổi đường dẫn để có thể hiển thị trên trang web
+            var newImgSrc = "{{ asset('') }}" + imgSrc;
+            // Cập nhật lại đường dẫn của ảnh
+            $(this).attr('src', newImgSrc);
+        });
     </script>
   
 @endsection
