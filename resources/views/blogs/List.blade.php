@@ -149,15 +149,6 @@
                     }
                 });
         })
-        // Lấy tất cả các thẻ ảnh trong div .summernote-content
-        $('.summernote-content img').each(function() {
-            // Lấy đường dẫn của ảnh
-            var imgSrc = $(this).attr('src');
-            // Thay đổi đường dẫn để có thể hiển thị trên trang web
-            var newImgSrc = "{{ asset('') }}" + imgSrc;
-            // Cập nhật lại đường dẫn của ảnh
-            $(this).attr('src', newImgSrc);
-        });
     </script>
   
 @endsection

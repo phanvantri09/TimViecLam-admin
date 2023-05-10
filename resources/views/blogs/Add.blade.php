@@ -19,9 +19,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Nội Dung </label>
-                                    <textarea name="content" id="summernote"></textarea>
+                                    <textarea name="content" id="editor"></textarea>
                                 </div>
-
                             </div>
                             <!-- /.card-body -->
 
@@ -35,14 +34,8 @@
         </div>
     </section>
     <script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-            var status = 1; // Giả sử status được thiết lập là 1
-            var switchValue = (status == 1) ? true :
-            false; // Chuyển đổi giá trị của status thành giá trị của Bootstrap Switch
-            $('input[data-toggle="switch"]').bootstrapSwitch('state',
-            switchValue); // Đặt giá trị của Bootstrap Switch
-        });
+        CKEDITOR.replace('editor');
+
     </script>
     
 @endsection
