@@ -8,6 +8,8 @@ use App\Http\Controllers\SensitiveKeywordController;
 use App\Http\Controllers\OverviewController;
 use App\Http\Controllers\MenuController;
 use App\Http\controllers\BlogController;
+use App\Http\Controllers\AcceptPostJobController;
+use App\Http\Controllers\ListPostJobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -160,6 +162,17 @@ Route::prefix('admin')->group(function () {
 
         });
     });
+    Route::group(['prefix'=>'PostJob', 'as'=>'PostJob.'],function () {
+        Route::controller(ListPostJobController::class)->group(function () {
+            Route::get('/list', 'ListPostJob')->name('List');
+        });
+    });
+    Route::group(['prefix'=>'AcceptPostJob', 'as'=>'AcceptPostJob.'],function () {
+        Route::controller(AcceptPostJobController::class)->group(function () {
+            Route::get('/accept', 'AcceptPostJob')->name('accept');
+        });
+    });
+
 
 });
 
