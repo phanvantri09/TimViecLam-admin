@@ -11,6 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Admin-Tìm việc làm anh Ánh</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
