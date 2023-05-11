@@ -410,6 +410,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p> Packages <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('PostJobPackageShow.Add') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm Package</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('PostJobPackageShow.List') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách Package</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('SensitiveKeyword.KeywordSensitive') }}" class="nav-link">
                                 <i class="nav-icon fas fa-ellipsis-h"></i>
                                 <p>Từ khóa cấm</p>

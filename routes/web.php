@@ -10,6 +10,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\controllers\BlogController;
 use App\Http\Controllers\AcceptPostJobController;
 use App\Http\Controllers\ListPostJobController;
+use App\Http\Controllers\PostJobPackageShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -172,6 +173,23 @@ Route::prefix('admin')->group(function () {
             Route::get('/accept', 'AcceptPostJob')->name('accept');
         });
     });
+    //CRUD postjobpackageshow
+    Route::group(['prefix'=>'PostJobPackageShow', 'as'=>'PostJobPackageShow.'],function () {
+        Route::controller(PostJobPackageShowController::class)->group(function () {
+            Route::get('/list', 'ListPostJobPackageShow')->name('List');
+
+            Route::get('/add', 'AddPostJobPackageShow')->name('Add');
+            Route::post('/add', 'AddPostJobPackageShowPost')->name('AddPost');
+
+            Route::get('/delete/{id}', 'DeletePostJobPackageShow')->name('Delete');
+
+            Route::get('/update/{id}', 'UpdatePostJobPackageShow')->name('Update');
+            Route::post('/update-post/{id}', 'UpdatePostJobPackageShowPost')->name('UpdatePost');
+
+
+        });
+    });
+
 
 
 });
