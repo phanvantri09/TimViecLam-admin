@@ -59,9 +59,16 @@ class JobController extends Controller
     }
     public function List(){
         $title = "Tuyển Dụng";
-        $data = Jobs::all();
+        $data = PostJob::all();
         $categoryJob = CategoryJob::all();
         return view('Job.List', compact(['categoryJob','data','title']));
+    }
+
+    public function ListPostJob($id){
+        $title = "Tuyển Dụng";
+        $data = PostJob::where('id_user', $id)->get();
+        $categoryJob = CategoryJob::all();
+        return view('Job.List', compact(['categoryJob','data','title','id']));
     }
     public function Delete(UpdateJob $id){
         $id->status = 5;//status delete

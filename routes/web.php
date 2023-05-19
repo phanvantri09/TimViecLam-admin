@@ -11,6 +11,11 @@ use App\Http\controllers\BlogController;
 use App\Http\Controllers\AcceptPostJobController;
 use App\Http\Controllers\ListPostJobController;
 use App\Http\Controllers\PostJobPackageShowController;
+use App\Http\Controllers\DegreeController;
+use App\Http\Controllers\RankController;
+use App\Http\Controllers\YearoldController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\CategoryJobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +38,8 @@ Route::prefix('admin')->group(function () {
     Route::group(['prefix'=>'Job', 'as'=>'Job.'],function () {
         Route::controller(JobController::class)->group(function () {
             Route::get('/show/{id}', 'Show')->name('Show');
+            
+            Route::get('/ListPostJob/{id}', 'ListPostJob')->name('ListPostJob');
             Route::get('/list', 'List')->name('List');
             // Route::get('/list/{id}', 'List')->name('List');
             Route::get('/add', 'Add')->name('Add');
@@ -189,8 +196,76 @@ Route::prefix('admin')->group(function () {
 
         });
     });
+    
+    Route::group(['prefix'=>'Degree', 'as'=>'Degree.'],function () {
+        Route::controller(DegreeController::class)->group(function () {
+            Route::get('/list','ListDegree')->name('List');
 
+            Route::get('/add', 'AddDegree')->name('Add');
+            Route::post('/add', 'AddDegreePost')->name('AddPost');
 
+            Route::get('edit/{id}','EditDegree')->name('Edit');
+            Route::post('edit-post/{id}','EditDegreePost')->name('EditPost');
+
+            Route::get('/delete/{id}', 'DeleteDegree')->name('Delete');
+        });
+    });
+    
+    Route::group(['prefix'=>'Rank', 'as'=>'Rank.'],function () {
+        Route::controller(RankController::class)->group(function () {
+            Route::get('/list','ListRank')->name('List');
+
+            Route::get('/add', 'AddRank')->name('Add');
+            Route::post('/add', 'AddRankPost')->name('AddPost');
+
+            Route::get('edit/{id}','EditRank')->name('Edit');
+            Route::post('edit-post/{id}','EditRankPost')->name('EditPost');
+
+            Route::get('/delete/{id}', 'DeleteRank')->name('Delete');
+        });
+    });
+
+    Route::group(['prefix'=>'Yearold', 'as'=>'Yearold.'],function () {
+        Route::controller(YearoldController::class)->group(function () {
+            Route::get('/list','ListYearold')->name('List');
+
+            Route::get('/add', 'AddYearold')->name('Add');
+            Route::post('/add', 'AddYearoldPost')->name('AddPost');
+
+            Route::get('edit/{id}','EditYearold')->name('Edit');
+            Route::post('edit-post/{id}','EditYearoldPost')->name('EditPost');
+
+            Route::get('/delete/{id}', 'DeleteYearold')->name('Delete');
+        });
+    });
+
+    Route::group(['prefix'=>'Experience', 'as'=>'Experience.'],function () {
+        Route::controller(ExperienceController::class)->group(function () {
+            Route::get('/list','ListExperience')->name('List');
+
+            Route::get('/add', 'AddExperience')->name('Add');
+            Route::post('/add', 'AddExperiencePost')->name('AddPost');
+
+            Route::get('edit/{id}','EditExperience')->name('Edit');
+            Route::post('edit-post/{id}','EditExperiencePost')->name('EditPost');
+
+            Route::get('/delete/{id}', 'DeleteExperience')->name('Delete');
+        });
+    });
+
+    Route::group(['prefix'=>'CategoryJob', 'as'=>'CategoryJob.'],function () {
+        Route::controller(CategoryJobController::class)->group(function () {
+            Route::get('/list','ListCategoryJob')->name('List');
+
+            Route::get('/add', 'AddCategoryJob')->name('Add');
+            Route::post('/add', 'AddCategoryJobPost')->name('AddPost');
+
+            Route::get('edit/{id}','EditExperience')->name('Edit');
+            Route::post('edit-post/{id}','EditCategoryJobPost')->name('EditPost');
+
+            Route::get('/delete/{id}', 'DeleteCategoryJob')->name('Delete');
+        });
+    });
 
 });
 
