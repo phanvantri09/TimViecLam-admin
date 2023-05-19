@@ -7,7 +7,12 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Danh sách bài đăng của người dùng: <b
-                                    class="text-info">{{ \App\Models\User::find($id)->first()->email }}</b></h3>
+                                    class="text-info">
+                                    @isset($id)
+                                    {{ \App\Models\User::find($id)->first()->email }}</b></h3>
+                                    
+
+                                    @endisset
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

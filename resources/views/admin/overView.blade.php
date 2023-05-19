@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('User.List',['type'=>\App\Helpers\CommonVaiation::TYPE_USER_TUYEN_DUNG]) }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-tie"></i></span>
                                 <div class="info-box-content">
@@ -43,7 +43,7 @@
                         <!-- /.info-box -->
                     </div>
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('User.List',['type'=>\App\Helpers\CommonVaiation::TYPE_USER_TIM_VIEC]) }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-success elevation-1"><i
                                         class="fas fa-user-friends"></i></span>
@@ -60,7 +60,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('Job.List') }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-mail-bulk"></i></span>
 
@@ -77,7 +77,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="{{ route('Overview.ListUser') }}" class="nav-link">
+                        <a href="{{ route('Job.List',['type'=>\App\Helpers\CommonVaiation::TYPE_USER_TIM_VIEC]) }}" class="nav-link">
                             <div class="info-box">
                                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-file-user"></i></span>
                                 <div class="info-box-content">
@@ -91,7 +91,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('CategoryJob.List') }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-solar-panel"></i></span>
                                 <div class="info-box-content">
@@ -105,7 +105,7 @@
                         <!-- /.info-box -->
                     </div>
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('SensitiveKeyword.KeywordSensitive') }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-success elevation-1"><i
                                         class="fas fa-skull-crossbones"></i></span>
@@ -122,7 +122,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('Rank.List') }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-school"></i></span>
 
@@ -154,7 +154,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('Rank.List') }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-danger elevation-1"><i
                                         class="fas fa-money-check-edit"></i></span>
@@ -168,7 +168,7 @@
                         <!-- /.info-box -->
                     </div>
                     <div class="col-12 col-sm-6 col-md-3">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('Degree.List') }}" class="nav-link">
                             <div class="info-box mb-3">
                                 <span class="info-box-icon bg-success elevation-1"><i class="fas fa-list-alt"></i></span>
 
