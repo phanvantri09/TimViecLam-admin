@@ -15,3 +15,4 @@ line 46 function login
                 return $this->sendFailedLoginResponse($request);
             }
         }
+composer require weidner/goutte

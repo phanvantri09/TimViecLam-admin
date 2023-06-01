@@ -303,7 +303,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
 
-
+                        <li class="nav-item">
+                            <a href="{{ route('Crawl.CrawlPostJob') }}" class="nav-link">
+                                <i class="nav-icon fas fa-ellipsis-h"></i>
+                                <p>Cào dữ liệu</p>
+                            </a>
+                        </li>
                         <li class="nav-header bg-primary">NGƯỜI DÙNG</li>
                         <li class="nav-item">
                             <a href="{{ route('User.Add', ['type' => 333]) }}" class="nav-link">

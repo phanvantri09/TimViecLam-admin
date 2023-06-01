@@ -16,7 +16,7 @@ use App\Http\Controllers\RankController;
 use App\Http\Controllers\YearoldController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\CategoryJobController;
-
+use App\Http\Controllers\CrawlController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -266,6 +266,21 @@ Route::prefix('admin')->group(function () {
             Route::get('/delete/{id}', 'DeleteCategoryJob')->name('Delete');
         });
     });
+    Route::group(['prefix'=>'Crawl', 'as'=>'Crawl.'],function () {
+        Route::controller(CrawlController::class)->group(function () {
+            Route::get('/CrawlPostJob','CrawlPostJob')->name('CrawlPostJob');
+            Route::get('/DownCrawlPostJob','DownCrawlPostJob')->name('DownCrawlPostJob');
+            
+            // Route::get('/add', 'AddCategoryJob')->name('Add');
+            // Route::post('/add', 'AddCategoryJobPost')->name('AddPost');
+
+            // Route::get('edit/{id}','EditExperience')->name('Edit');
+            // Route::post('edit-post/{id}','EditCategoryJobPost')->name('EditPost');
+
+            // Route::get('/delete/{id}', 'DeleteCategoryJob')->name('Delete');
+        });
+    });
+
 
 });
 
